@@ -56,6 +56,10 @@ func main() {
 					entry.Path = strings.Replace(entry.Path, "/upload/", "/get/", 1)
 					continue
 				}
+				if strings.HasPrefix(entry.Path, "/delete/") {
+					entry.Path = strings.Replace(entry.Path, "/delete/", "/get/", 1)
+					continue
+				}
 
 				url := fmt.Sprintf("http://%s%s", *addr, entry.Path)
 
